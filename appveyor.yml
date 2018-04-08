@@ -44,7 +44,7 @@ environment:
     # skipping – we are getting some strange errors here
     - PYTHON: "C:\\PyPy3"
       PYTHON_PYPY: "pypy3"
-      PYTHON_PYPY_VERSION: "5.10.1"
+      PYTHON_PYPY_VERSION: "v5.10.1"
       PYTHON_VERSION: "3.5.2"
       PYTHON_ARCH: "32"
 
