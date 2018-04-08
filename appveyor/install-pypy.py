@@ -33,7 +33,7 @@ PYTHON_ARCH = os.environ.get('PYTHON_ARCH', None)
 if not PYTHON_PYPY: sys.exit(0)
 if os.path.exists(os.path.join(PYTHON, 'python.exe')): sys.exit(0)
 
-URL = 'https://bitbucket.org/pypy/pypy/downloads/{}-{}-win32.zip'
+URL = 'https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.1-win32.zip'
 
 url = URL.format(PYTHON_PYPY, PYTHON_PYPY_VERSION)
 
