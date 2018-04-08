@@ -51,8 +51,8 @@ environment:
       PYTHON_ARCH: "32"
 
 
-image:
-- Visual Studio 2015
+#image:
+#- Visual Studio 2015
 
 install:
   - ECHO "Filesystem root:"
