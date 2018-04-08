@@ -42,7 +42,11 @@ environment:
   #    PYTHON_ARCH: "32"
 
     # skipping – we are getting some strange errors here
+    
     - PYTHON: "C:\\PyPy3"
+      PYTHON_PYPY: "pypy3"
+      PYTHON_EXE: "C:\\PyPy3\\pypy3"
+      PYTHON_PYPY: "pypy3"
       PYTHON_PYPY: "pypy3"
       PYTHON_PYPY_VERSION: "v5.10.1"
       PYTHON_VERSION: "3.5.2"
@@ -69,9 +73,9 @@ install:
 
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - "pip install -U pip setuptools wheel"
+  - "%PYTHON_EXE% pip install -U pip setuptools wheel"
 
-  - "%CMD_IN_ENV% pip install -r dev-requirements.txt"
+  - "%CMD_IN_ENV% %PYTHON_EXE% pip install -r dev-requirements.txt"
 
 build_script:
   - "SET APPVEYOR=True"
@@ -80,9 +84,9 @@ build_script:
 test_script:
   - "%CMD_IN_ENV% python setup.py nosetests --verbosity=2"
 
-after_test:
-  - "C:\\Python35\\python.exe appveyor\\build.py"
-  - ps: "ls dist"
+#after_test:
+#  - "C:\\Python35\\python.exe appveyor\\build.py"
+#  - ps: "ls dist"
 
 artifacts:
   - path: dist\*
