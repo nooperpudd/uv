@@ -51,7 +51,8 @@ try:
     os.unlink('C:\\pypy.zip')
 except OSError:
     pass
-os.link(os.path.join(PYTHON, 'pypy3.exe'), os.path.join(PYTHON, 'python.exe'))
+
+# os.link(os.path.join(PYTHON, 'pypy3.exe'), os.path.join(PYTHON, 'python.exe'))
 
 # EZ_SETUP = 'https://bootstrap.pypa.io/ez_setup.py'
 
