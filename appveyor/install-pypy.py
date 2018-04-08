@@ -51,7 +51,7 @@ try:
     os.unlink('C:\\pypy.zip')
 except OSError:
     pass
-os.link(os.path.join(PYTHON, 'pypy.exe'), os.path.join(PYTHON, 'python.exe'))
+os.link(os.path.join(PYTHON, 'pypy3.exe'), os.path.join(PYTHON, 'python.exe'))
 
 EZ_SETUP = 'https://bootstrap.pypa.io/ez_setup.py'
 
@@ -62,7 +62,7 @@ with open(os.path.join('deps', 'ez_setup.py'), 'wb') as get_pip:
 ez_setup = os.path.join('deps', 'ez_setup.py')
 subprocess.call([os.path.join(PYTHON, 'python.exe'), ez_setup])
 
-PIP_URL = 'https://pypi.python.org/packages/source/p/pip/pip-7.1.2.tar.gz'
+PIP_URL = 'https://pypi.python.org/packages/source/p/pip/pip-9.0.3.tar.gz'
 
 response = urllib.request.urlopen(PIP_URL)
 with open(os.path.join('deps', 'pip.tar.gz'), 'wb') as get_pip:
