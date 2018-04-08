@@ -53,25 +53,25 @@ except OSError:
     pass
 os.link(os.path.join(PYTHON, 'pypy3.exe'), os.path.join(PYTHON, 'python.exe'))
 
-EZ_SETUP = 'https://bootstrap.pypa.io/ez_setup.py'
+# EZ_SETUP = 'https://bootstrap.pypa.io/ez_setup.py'
 
-response = urllib.request.urlopen(EZ_SETUP)
-with open(os.path.join('deps', 'ez_setup.py'), 'wb') as get_pip:
-    get_pip.write(response.read())
+# response = urllib.request.urlopen(EZ_SETUP)
+# with open(os.path.join('deps', 'ez_setup.py'), 'wb') as get_pip:
+#     get_pip.write(response.read())
 
-ez_setup = os.path.join('deps', 'ez_setup.py')
-subprocess.call([os.path.join(PYTHON, 'python.exe'), ez_setup])
+# ez_setup = os.path.join('deps', 'ez_setup.py')
+# subprocess.call([os.path.join(PYTHON, 'python.exe'), ez_setup])
 
-PIP_URL = 'https://pypi.python.org/packages/source/p/pip/pip-9.0.3.tar.gz'
+# PIP_URL = 'https://pypi.python.org/packages/source/p/pip/pip-9.0.3.tar.gz'
 
-response = urllib.request.urlopen(PIP_URL)
-with open(os.path.join('deps', 'pip.tar.gz'), 'wb') as get_pip:
-    get_pip.write(response.read())
+# response = urllib.request.urlopen(PIP_URL)
+# with open(os.path.join('deps', 'pip.tar.gz'), 'wb') as get_pip:
+#     get_pip.write(response.read())
 
-pip_tar = tarfile.open(os.path.join('deps', 'pip.tar.gz'), 'r:gz')
-pip_tar.extractall(PYTHON)
+# pip_tar = tarfile.open(os.path.join('deps', 'pip.tar.gz'), 'r:gz')
+# pip_tar.extractall(PYTHON)
 
-pip_setup = os.path.join(PYTHON, 'pip-7.1.2', 'setup.py')
+# pip_setup = os.path.join(PYTHON, 'pip-7.1.2', 'setup.py')
 
-subprocess.call([os.path.join(PYTHON, 'python.exe'), pip_setup, 'install'],
-                cwd=os.path.join(PYTHON, 'pip-7.1.2'))
+# subprocess.call([os.path.join(PYTHON, 'python.exe'), pip_setup, 'install'],
+#                 cwd=os.path.join(PYTHON, 'pip-7.1.2'))
