@@ -43,9 +43,9 @@ environment:
 
     # skipping – we are getting some strange errors here
     
-    - PYTHON: "C:\\PyPy3"
+    - PYTHON: "C:\\PyPy3\\pypy3"
       PYTHON_PYPY: "pypy3"
-      PYTHON_EXE: "C:\\PyPy3\\pypy3"
+      PYTHON_DIR: "C:\\PyPy3"
       PYTHON_PYPY_VERSION: "v5.10.1"
       PYTHON_VERSION: "3.5.2"
       PYTHON_ARCH: "32"
@@ -65,22 +65,22 @@ install:
 
   - ps: if (-not(Test-Path($env:PYTHON))) { & appveyor\install.ps1 }
 
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PYTHON%\\bin;%PATH%"
+  - "SET PATH=%PYTHON_DIR%;%PYTHON_DIR%\\Scripts;%PYTHON_DIR%\\bin;%PATH%"
   
   - ps: If(($env:PYTHON).Contains("pypy3")) { (New-Object Net.WebClient).DownloadFile('https://bootstrap.pypa.io/get-pip.py', "$env:appveyor_build_folder\get-pip.py"); pypy3.exe get-pip.py }
 
-  - "python --version"
-  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - "%PYTHON_EXE% pip install -U pip setuptools wheel"
+  - "%PYTHON% --version"
+  - "%PYTHON% -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - "%PYTHON% pip install -U pip setuptools wheel"
 
-  - "%CMD_IN_ENV% %PYTHON_EXE% pip install -r dev-requirements.txt"
+  - "%CMD_IN_ENV% %PYTHON% pip install -r dev-requirements.txt"
 
 build_script:
   - "SET APPVEYOR=True"
-  - "%CMD_IN_ENV% python setup.py build"
+  - "%CMD_IN_ENV% %PYTHON% setup.py build"
 
 test_script:
-  - "%CMD_IN_ENV% python setup.py nosetests --verbosity=2"
+  - "%CMD_IN_ENV% %PYTHON% setup.py nosetests --verbosity=2"
 
 #after_test:
 #  - "C:\\Python35\\python.exe appveyor\\build.py"
