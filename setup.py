@@ -153,17 +153,17 @@ def clone_gyp():
     subprocess.call(['git', 'clone', GYP_REPO, GYP_PATH])
 
 
-def build_libuv():
-    log.info('building libuv...')
-    env = build_environ()
-    if sys.platform == 'win32':
-        architecture = {'32bit': 'x86', '64bit': 'x64'}[platform.architecture()[0]]
-        cmd = ['vcbuild.bat', architecture, 'release']
-        subprocess.check_call(cmd, shell=True, cwd=LIBUV_PATH, env=env)
-    else:
-        subprocess.check_call(['sh', 'autogen.sh'], cwd=LIBUV_PATH, env=env)
-        subprocess.check_call(['./configure'], cwd=LIBUV_PATH, env=env)
-        subprocess.check_call(['make'], cwd=LIBUV_PATH, env=env)
+# def build_libuv():
+#     log.info('building libuv...')
+#     env = build_environ()
+#     if sys.platform == 'win32':
+#         architecture = {'32bit': 'x86', '64bit': 'x64'}[platform.architecture()[0]]
+#         cmd = ['vcbuild.bat', architecture, 'release']
+#         subprocess.check_call(cmd, shell=True, cwd=LIBUV_PATH, env=env)
+#     else:
+#         subprocess.check_call(['sh', 'autogen.sh'], cwd=LIBUV_PATH, env=env)
+#         subprocess.check_call(['./configure'], cwd=LIBUV_PATH, env=env)
+#         subprocess.check_call(['make'], cwd=LIBUV_PATH, env=env)
 
 
 def clean_libuv():
@@ -242,7 +242,7 @@ class BuildExtensions(build_ext):
         if self.libuv_build_clean:
             clean_libuv()
 
-        build_libuv()
+#         build_libuv()
 
         self.compiler.add_include_dir(os.path.join(LIBUV_PATH, 'include'))
         if sys.platform != 'win32':
