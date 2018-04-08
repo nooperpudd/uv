@@ -46,8 +46,6 @@ environment:
     - PYTHON: "C:\\PyPy3"
       PYTHON_PYPY: "pypy3"
       PYTHON_EXE: "C:\\PyPy3\\pypy3"
-      PYTHON_PYPY: "pypy3"
-      PYTHON_PYPY: "pypy3"
       PYTHON_PYPY_VERSION: "v5.10.1"
       PYTHON_VERSION: "3.5.2"
       PYTHON_ARCH: "32"
