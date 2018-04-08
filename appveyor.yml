@@ -73,9 +73,9 @@ install:
 
   - "%PYTHON% --version"
   - "%PYTHON% -c \"import struct; print(struct.calcsize('P') * 8)\""
-  - "%PYTHON% pip install -U pip setuptools wheel"
+  - "%PYTHON% -m pip install -U pip setuptools wheel"
 
-  - "%CMD_IN_ENV% %PYTHON% pip install -r dev-requirements.txt"
+  - "%CMD_IN_ENV% %PYTHON% -m pip install -r dev-requirements.txt"
 
 build_script:
   - "SET APPVEYOR=True"
